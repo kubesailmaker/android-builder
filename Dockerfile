@@ -17,9 +17,9 @@ ENV GRADLE_HOME /opt/app/gradle
 ENV PATH ${PATH}:${GRADLE_HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 RUN curl -o /tmp/commandlinetools-linux-6858069_latest.zip https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
-RUN curl -o /tmp/gradle-6.6.1-bin.zip https://services.gradle.org/distributions/gradle-6.6.1-bin.zip
+RUN curl -o /tmp/gradle-6.6.1-bin.zip https://downloads.gradle-dn.com/distributions/gradle-6.6.1-bin.zip
+RUN ls -al /tmp
 
 RUN mkdir /opt/app && mkdir /opt/app/java && unzip /tmp/commandlinetools-linux-6858069_latest.zip -d /opt/app/ && unzip /tmp/gradle-6.6.1-bin.zip -d /opt/app/ && \
     mv /opt/app/gradle-6.6.1 /opt/app/gradle && \
     echo y | /opt/app/cmdline-tools/bin/sdkmanager --sdk_root=/opt/app/android-sdk "build-tools;29.0.2" "platforms;android-29" "platforms;android-28" "platforms;android-27"
-
